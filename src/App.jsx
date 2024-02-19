@@ -1,7 +1,15 @@
+import { AlertClock } from "./AlertCLock";
 import { Hello } from "./Hello";
 import { Message } from "./Message";
 import { Welcome } from "./Welcome";
+
 export function App(){
+    {/*Se crea una función dentro de la función que pasará el evento al botón */}
+    const handleClick=()=>{
+        const now = new Date()
+        alert(`La hora es: ${now.toLocaleTimeString()}`)
+    };
+    
     return(
         <div>
             {/* Se puede usar el Hello.jsx más de una vez en el App.jsx */}
@@ -13,6 +21,8 @@ export function App(){
              * hayamos específicado
              */}
             <Welcome name={"Rosa"} age={25}/>
+
+            <AlertClock onClickHandler={handleClick}/>
         </div>
     )
 }
