@@ -1,5 +1,11 @@
 export function Age({age}){
     return(
-        <p>Your age is: {age}</p>
+        <div>
+            {age >18 ?(
+                <p>Your age is: {age}</p>
+            ) : (
+                <p>You're very young!</p>
+            )}
+        </div>
     )
 }
