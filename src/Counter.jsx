@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CounterDisplay } from "./CounterDisplay";
 {/*Se puede usar el useState para  gestionar el valor del componente,
  al llamar al valor setter deberá ser una función porque sabremos que estamos consiguiendo el valor más reciente*/}
-export function Counter({initialValue=3, increment=1, decrement=1, reset=0}){
+export function Counter({initialValue=0, increment=1, decrement=1, reset=0}){
     const[count, setCount]= useState(initialValue);
+
+    useEffect(()=>{
+        
+        return()=>{
+            console.log(`El valor del contador es: ${count}`)
+        }
+    },[count])
 
     function handlerIncrementCounter(){
         setCount((c)=>{
