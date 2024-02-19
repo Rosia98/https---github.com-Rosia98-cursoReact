@@ -1,6 +1,6 @@
 import { useState } from "react";
-{/*Se puede usar el useState para  gestionar el valor del componente, y al usarlo sabemos que estamos consiguiendo el 
-valor más reciente*/}
+{/*Se puede usar el useState para  gestionar el valor del componente,
+ al llamar al valor setter deberá ser una función porque sabremos que estamos consiguiendo el valor más reciente*/}
 export function Counter({initialValue=0}){
     const[counter, setCounter]= useState(initialValue);
 
