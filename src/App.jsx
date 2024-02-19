@@ -3,7 +3,9 @@ import { Clock } from "./Clock";
 import { Counter } from "./Counter";
 import { Hello } from "./Hello";
 import { Message } from "./Message";
+import { MouseClicker } from "./MouseClicker";
 import { Welcome } from "./Welcome";
+
 
 export function App(){
     {/*Se crea una función dentro de la función que pasará el evento al botón */}
@@ -26,7 +28,9 @@ export function App(){
 
             <AlertClock onClickHandler={handleClick}/>
             <Counter/>
+            <MouseClicker/>
             <Clock/>
+          
         </div>
     )
 }
