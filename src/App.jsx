@@ -12,8 +12,7 @@ export function App(){
             {/**Sí se podría establecer un valor predeterminado usando defaultProps, si no se le da un valor se usará el predeterminado que le 
              * hayamos específicado
              */}
-            <Welcome name={"Rosa"}/>
-            <Welcome age={25}/>
+            <Welcome name={"Rosa"} age={25}/>
         </div>
     )
 }
