@@ -1,18 +1,29 @@
 import { useState } from "react";
+import { CounterDisplay } from "./CounterDisplay";
 {/*Se puede usar el useState para  gestionar el valor del componente,
  al llamar al valor setter deberá ser una función porque sabremos que estamos consiguiendo el valor más reciente*/}
-export function Counter({initialValue=0}){
-    const[counter, setCounter]= useState(initialValue);
+export function Counter({initialValue=3, increment=1, decrement=1, reset=0}){
+    const[count, setCount]= useState(initialValue);
 
     function handlerIncrementCounter(){
-        setCounter((c)=>{
-            return (c+1)
+        setCount((c)=>{
+            return (c+increment)
         })
+    }
+    function handlerDecrementCounter(){
+        setCount((c)=>{
+            return(c-decrement)
+        })
+    }
+    function handlerResetCounter(){
+        setCount(reset);
     }
     return(
         <div>
-            <h2>Su número es: {counter}</h2>
-            <button onClick={handlerIncrementCounter}>Pulsame</button>
+            <CounterDisplay count={count}/>
+            <button onClick={handlerIncrementCounter}>+</button>
+            <button onClick={handlerDecrementCounter}>-</button>
+            <button onClick={handlerResetCounter}>Reset</button>
         </div>
     )
 }
