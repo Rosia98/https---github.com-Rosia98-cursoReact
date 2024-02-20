@@ -26,6 +26,7 @@ export function Login({onLogin}){
     }
 
     function handleLogin(){
+        event.preventDefault()
         onLogin({createData})
     }
     function handleResetForm(){
