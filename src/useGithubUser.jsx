@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import useSWR from 'swr';
 
-async function fetcher(url){
+export async function fetcher(url){
   const response = await fetch(url)
   if (!response.ok) {
     throw new Error('Failed to fetch data')
@@ -10,12 +10,11 @@ async function fetcher(url){
 };
 export function useGithubUser(username){
   const apiUrl =  username ? `https://api.github.com/users/${username}` : null
-  const { data, error } = useSWR(apiUrl, fetcher)
+  const { data, error } = useSWR(apiUrl)
 
   function refetchUser(){
-    // Manually trigger a re-fetch of the data
-    revalidate();
-  };
+    revalidate()
+  }
   return {  
     user: data,
     isLoading: !error && !data,
