@@ -8,7 +8,7 @@ function createData(){
     }
 }
 
-export function Login(){
+export function Login({onLogin}){
     const [data, setData]= useState(createData())
 
     function handleInputChange(event){
@@ -25,11 +25,16 @@ export function Login(){
         })
     }
 
+    function handleLogin(){
+        onLogin({createData})
+    }
+   
     return(
         <div>
             <input name="username" type="text" value={data.username} onChange={handleInputChange} placeholder="Name"/>
             <input name="password" type="password" value={data.password} onChange={handleInputChange} placeholder="Password" />
             <input name="remember" type="checkbox" checked={data.remember} onChange={handleInputChange}/> Remember me?
+            <button onClick={handleLogin} disabled={!data.username || !data.password}>Login</button>
         </div>
     )
 
