@@ -38,7 +38,7 @@ export function App(){
             {/**Sí se podría establecer un valor predeterminado usando defaultProps, si no se le da un valor se usará el predeterminado que le 
              * hayamos específicado
              */}
-            <Welcome/>
+            <Welcome name={'Rosa'} age={25}/>
 
             <AlertClock onClickHandler={handleClick}/>
             <Counter/>

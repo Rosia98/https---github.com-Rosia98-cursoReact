@@ -1,4 +1,5 @@
 import { Age } from "./Age";
+import "./Welcome.module.scss"
 export function Welcome({name, age}){
     return(
         <div className="welcome">
