@@ -4,7 +4,7 @@ export function Container({tittle, children}){
     const[isCollapsed, setCollapsed] = useState(false)
 
     function handleToggleCollapse(){
-        setCollapsed(|isCollapsed)
+        setCollapsed(!isCollapsed)
     }
 
     return(
