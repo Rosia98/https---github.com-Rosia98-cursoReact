@@ -9,6 +9,7 @@ import { Login } from "./Login";
 import { Message } from "./Message";
 import { MouseClicker } from "./MouseClicker";
 import { OneMessage } from "./OneMessage";
+import { TodoList } from "./TodoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 import { StrictMode } from "react";
@@ -51,6 +52,7 @@ export function App(){
 
             <h3>Colores: </h3>
             <Colors colors={colorData}/>
+            <TodoList/>
 
             
         </div>
