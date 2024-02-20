@@ -1,4 +1,4 @@
-import { Route, Router, Routes } from "react-router-dom";
+import { Link, Route, Router, Routes } from "react-router-dom";
 import { AlertClock } from "./AlertCLock";
 import { Clock } from "./Clock";
 import { Colors } from "./Colors";
@@ -17,6 +17,7 @@ import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 import { StrictMode } from "react";
 import { ShowGithubUser } from "./ShowGithubUser";
+import { GiuthubUserList } from "./GithubUserList";
 
 function NotFound(){
     return (
@@ -87,14 +88,14 @@ export function App(){
                             <Link to="/counter">Counter</Link>
                         </li>
                         <li>
-                            <Link to="/users/johndoe">Show Github User</Link>
+                            <Link to="/users"> Github User List</Link>
                         </li>
                     </ul>
                 </nav>
                 <Routes>
                  <Route path="/" element={<Welcome name="John" />} />
                  <Route path="/counter" element={<Counter />} />
-                 <Route path="/users/:username" element={<ShowGithubUser />} />
+                 <Route path="/users" element={<GiuthubUserList />} />
                  <Route path="*" element={<NotFound />} />
                 </Routes>
              </Router>
