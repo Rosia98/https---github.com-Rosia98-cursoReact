@@ -68,6 +68,8 @@ export function App(){
                 <h2>Github Información usuario:</h2>
                 <GithubUser username="octocat"/>
              </div>
+
+
             
         </div>
     )
