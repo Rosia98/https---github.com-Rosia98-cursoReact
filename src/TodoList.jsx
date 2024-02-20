@@ -9,6 +9,11 @@ export function TodoList(){
             setTodos([...todos, newTodo])
             setNewTodo('')
         }}
+    
+    function handleResetTodos(){
+        setTodos([])
+        setNewTodo('')
+    }    
         return(
             <div>
                 <h2>Todo List</h2>
@@ -20,6 +25,7 @@ export function TodoList(){
                 <div>
                     <input type="text" value={newTodo} onChange={(e)=>setNewTodo(e.target.value)} />
                     <button onClick={handleAddTodo}>Add todo</button>
+                    <button onClick={handleResetTodos}>Reset Todos</button>
                 </div>
             </div>
         )
