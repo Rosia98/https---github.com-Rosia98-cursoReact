@@ -16,6 +16,7 @@ import { TodoList } from "./TodoList";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 import { StrictMode } from "react";
+import { ShowGithubUser } from "./ShowGithubUser";
 
 const colorData=[
     {id: 1, nombre: 'rojo' },
@@ -43,7 +44,6 @@ export function App(){
              */}
 
             <AlertClock onClickHandler={handleClick}/>
-            <Counter/>
             <MouseClicker/>
             <LenguageProvider>
                 <div>
@@ -72,6 +72,8 @@ export function App(){
              <Router>
                 <Routes>
                  <Route path="/" element={<Welcome name="John" />} />
+                 <Route path="/counter" element={<Counter />} />
+                 <Route path="/users/:username" element={<ShowGithubUser />} />
                 </Routes>
              </Router>
             
