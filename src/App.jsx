@@ -18,6 +18,14 @@ import { Welcome } from "./Welcome";
 import { StrictMode } from "react";
 import { ShowGithubUser } from "./ShowGithubUser";
 
+function NotFound(){
+    return (
+      <div>
+        <h2>Not Found</h2>
+        <p>The page you are looking for does not exist.</p>
+      </div>
+    );
+  };
 const colorData=[
     {id: 1, nombre: 'rojo' },
     {id: 2, nombre: 'azul' },
@@ -87,6 +95,7 @@ export function App(){
                  <Route path="/" element={<Welcome name="John" />} />
                  <Route path="/counter" element={<Counter />} />
                  <Route path="/users/:username" element={<ShowGithubUser />} />
+                 <Route path="*" element={<NotFound />} />
                 </Routes>
              </Router>
             
