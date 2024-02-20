@@ -3,6 +3,7 @@ import { Clock } from "./Clock";
 import { Colors } from "./Colors";
 import { Counter } from "./Counter";
 import { FocusabledInput } from "./FocusabledInput";
+import GithubUser from "./GithubUser";
 import { Hello } from "./Hello";
 import { InteractiveWelcome } from "./InteactiveWelcome";
 import { LenguageProvider, useLenguage } from "./LenguageContext";
@@ -63,6 +64,10 @@ export function App(){
             <Colors colors={colorData}/>
             <TodoList/>
 
+             <div>
+                <h2>Github Información usuario:</h2>
+                <GithubUser username="octocat"/>
+             </div>
             
         </div>
     )

@@ -1,39 +1,54 @@
 import React, { useState, useEffect } from 'react';
 
-export function GithubUser({ username }){
-  const [userData, setUserData] = useState(null);
+export function GithubUser(){
+    const [searchInput, setSearchInput] = useState('');
+    const [users, setUsers] = useState([]);
+    const [userData, setUserData] = useState(null);
 
-  useEffect(() => {
-   async function fetchUserData(){
-      try {
-        const response = await fetch(`https://api.github.com/users/${username}`);
-        if (response.ok) {
-          const data = await response.json();
-          setUserData(data);
-        } else {
-          console.error('Error fetching user data:', response.statusText);
-        }
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
+    function handleSearchInputChange(e){
+        setSearchInput(e.target.value);
+      };
+    
+      async function handleSearchSubmit(e){
+        e.preventDefault();
+
+        try {
+            const response = await fetch(`https://api.github.com/search/users?q=${searchInput}`);
+            if (response.ok) {
+              const data = await response.json();
+              setUsers(data.items);
+              setError(null);
+            } else {
+              setError('Error searching for users');
+            }
+          } catch (error) {
+            setError('Error searching for users');
+          }
     };
-
-    fetchUserData();
-  }, [username]);
 
   return (
     <div>
-      {userData ? (
-        <div>
-          <h2>{userData.name}</h2>
-          <p>Login: {userData.login}</p>
-          <img src={userData.avatar_url} alt="User Avatar" style={{ width: '100px', height: '100px' }} />
-        </div>
-      ) : (
-        <p>Cargando usuario...</p>
-      )}
+      <form onSubmit={handleSearchSubmit}>
+        <label htmlFor="searchInput">Search Github Users:</label>
+        <input
+          type="text"
+          id="searchInput"
+          value={searchInput}
+          onChange={handleSearchInputChange}
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      {error && <p>{error}</p>}
+
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            <GithubUser username={user.login} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default GithubUser;
