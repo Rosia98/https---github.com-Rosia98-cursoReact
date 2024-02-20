@@ -28,13 +28,16 @@ export function Login({onLogin}){
     function handleLogin(){
         onLogin({createData})
     }
-   
+    function handleResetForm(){
+        setData(createData())
+    }
     return(
         <div>
             <input name="username" type="text" value={data.username} onChange={handleInputChange} placeholder="Name"/>
             <input name="password" type="password" value={data.password} onChange={handleInputChange} placeholder="Password" />
             <input name="remember" type="checkbox" checked={data.remember} onChange={handleInputChange}/> Remember me?
             <button onClick={handleLogin} disabled={!data.username || !data.password}>Login</button>
+            <button onClick={handleResetForm}>Reset</button>
         </div>
     )
 
