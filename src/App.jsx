@@ -2,6 +2,7 @@ import { AlertClock } from "./AlertCLock";
 import { Clock } from "./Clock";
 import { Counter } from "./Counter";
 import { Hello } from "./Hello";
+import { InteractiveWelcome } from "./InteactiveWelcome";
 import { Message } from "./Message";
 import { MouseClicker } from "./MouseClicker";
 import { Welcome } from "./Welcome";
@@ -30,7 +31,7 @@ export function App(){
             <Counter/>
             <MouseClicker/>
             <Clock/>
-          
+            <InteractiveWelcome/>
         </div>
     )
 }
