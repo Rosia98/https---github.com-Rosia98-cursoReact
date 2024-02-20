@@ -25,7 +25,7 @@ export function Login({onLogin}){
         })
     }
 
-    function handleLogin(){
+    function handleLogin(event){
         event.preventDefault()
         onLogin({createData})
     }
