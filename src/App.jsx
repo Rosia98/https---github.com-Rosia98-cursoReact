@@ -5,6 +5,7 @@ import { Counter } from "./Counter";
 import { FocusabledInput } from "./FocusabledInput";
 import { Hello } from "./Hello";
 import { InteractiveWelcome } from "./InteactiveWelcome";
+import { LenguageProvider, useLenguage } from "./LenguageContext";
 import { Login } from "./Login";
 import { Message } from "./Message";
 import { MouseClicker } from "./MouseClicker";
@@ -43,7 +44,15 @@ export function App(){
             <AlertClock onClickHandler={handleClick}/>
             <Counter/>
             <MouseClicker/>
-            {/*<Clock/>*/}
+            <LenguageProvider>
+                <div>
+                    <h1>Lenguaje Selector</h1>
+                    <LenguageSelector/>
+                    <Clock/>
+                </div>  
+            </LenguageProvider>
+          
+            
             <InteractiveWelcome/>
             <Login/>
             <UncontrolledLogin/>
@@ -57,4 +66,22 @@ export function App(){
             
         </div>
     )
+
 }
+
+    function LenguajeSelector(){
+        const{changeLenguage}= useLenguage()
+    
+        function handleLenguageChange(e){
+            changeLenguage(e.target.value)
+    }
+    return(
+    <div>
+      <label htmlFor="languageSelect">Select Language: </label>
+      <select id="languageSelect" onChange={handleLanguageChange}>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
+    </div>
+    )
+    }

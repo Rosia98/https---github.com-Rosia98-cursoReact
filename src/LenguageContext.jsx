@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
 const LenguageContext = createContext()
-export function LenguageContext({children}){
+export function LenguageProvider({children}){
     const[lenguage, setLenguage] = useState('en')
 
     function changeLenguage (newLenguage){
@@ -9,9 +9,9 @@ export function LenguageContext({children}){
     }
 
     return(
-        <LanguageContext.Provider value={{ language, changeLanguage }}>
+        <LenguageContext.Provider value={{lenguage, changeLenguage}}>
             {children}
-        </LanguageContext.Provider>
+        </LenguageContext.Provider>
     )
 }
 export function useLenguage(){
