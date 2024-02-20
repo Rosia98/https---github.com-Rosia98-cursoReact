@@ -1,54 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+import { useGithubUser } from './useGithubUser'
 
 export function GithubUser(){
-    const [searchInput, setSearchInput] = useState('');
-    const [users, setUsers] = useState([]);
-    const [userData, setUserData] = useState(null);
+    const { userData, error } = useGithubUser(username)
 
-    function handleSearchInputChange(e){
-        setSearchInput(e.target.value);
-      };
-    
-      async function handleSearchSubmit(e){
-        e.preventDefault();
+    return (
+        <div>
+        {error && <p>{error}</p>}
 
-        try {
-            const response = await fetch(`https://api.github.com/search/users?q=${searchInput}`);
-            if (response.ok) {
-              const data = await response.json();
-              setUsers(data.items);
-              setError(null);
-            } else {
-              setError('Error searching for users');
-            }
-          } catch (error) {
-            setError('Error searching for users');
-          }
-    };
-
-  return (
-    <div>
-      <form onSubmit={handleSearchSubmit}>
-        <label htmlFor="searchInput">Search Github Users:</label>
-        <input
-          type="text"
-          id="searchInput"
-          value={searchInput}
-          onChange={handleSearchInputChange}
-        />
-        <button type="submit">Search</button>
-      </form>
-
-      {error && <p>{error}</p>}
-
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            <GithubUser username={user.login} />
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+        {userData && (
+            <div>
+              <h2>{userData.name}</h2>
+             <p>Login: {userData.login}</p>
+             <img src={userData.avatar_url} alt="User Avatar" style={{ width: '100px', height: '100px' }} />
+            </div>
+          )}
+        </div>
+  )
+}
 
