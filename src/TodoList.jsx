@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./TodoList.module.scss"
 
 export function TodoList(){
     const [todos, setTodos]=useState([])
@@ -22,12 +23,12 @@ export function TodoList(){
     }
         return(
             <div>
-                <h2>Todo List</h2>
-                <ul>
+                <h2 className={styles.todoHeader}>Todo List</h2>
+                <ul className={styles.todoList}>
                     {todos.map((todo, index)=>(
                         <li key={{index}}>{todo}
                         {todo}
-                        <button onClick={() => handleRemoveTodo(index)}>Remove</button>
+                        <button onClick={() => handleRemoveTodo(index)} className={styles.removeButton}>Remove</button>
                         </li>
                     ))}
                 </ul>

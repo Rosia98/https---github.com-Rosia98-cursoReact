@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import "./Clock.module.scss"
+import styles from "./Clock.module.scss"
 
 
 export function Clock(){
@@ -12,7 +12,7 @@ export function Clock(){
         }, 1000)
 })
     return(
-        <div className={"clock-container"}>
+        <div className={styles.clock-container}>
             <h2 className={classes.h2}>Hora: {date.toLocaleTimeString()}</h2>
         </div>
     )
