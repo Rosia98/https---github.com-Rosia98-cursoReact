@@ -1,6 +1,7 @@
 import { AlertClock } from "./AlertCLock";
 import { Clock } from "./Clock";
 import { Counter } from "./Counter";
+import { FocusabledInput } from "./FocusabledInput";
 import { Hello } from "./Hello";
 import { InteractiveWelcome } from "./InteactiveWelcome";
 import { Login } from "./Login";
@@ -36,6 +37,7 @@ export function App(){
             <InteractiveWelcome/>
             <Login/>
             <UncontrolledLogin/>
+            <FocusabledInput/>
         </div>
     )
 }
