@@ -1,3 +1,4 @@
+import { Route, Router, Routes } from "react-router-dom";
 import { AlertClock } from "./AlertCLock";
 import { Clock } from "./Clock";
 import { Colors } from "./Colors";
@@ -40,7 +41,6 @@ export function App(){
             {/**Sí se podría establecer un valor predeterminado usando defaultProps, si no se le da un valor se usará el predeterminado que le 
              * hayamos específicado
              */}
-            <Welcome name={'Rosa'} age={25}/>
 
             <AlertClock onClickHandler={handleClick}/>
             <Counter/>
@@ -69,7 +69,11 @@ export function App(){
                 <GithubUser username="octocat"/>
              </div>
 
-
+             <Router>
+                <Routes>
+                 <Route path="/" element={<Welcome name="John" />} />
+                </Routes>
+             </Router>
             
         </div>
     )
