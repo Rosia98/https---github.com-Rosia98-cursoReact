@@ -1,5 +1,6 @@
 import { AlertClock } from "./AlertCLock";
 import { Clock } from "./Clock";
+import { Colors } from "./Colors";
 import { Counter } from "./Counter";
 import { FocusabledInput } from "./FocusabledInput";
 import { Hello } from "./Hello";
@@ -12,7 +13,12 @@ import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Welcome } from "./Welcome";
 import { StrictMode } from "react";
 
+const colorData=[
+    {id: 1, nombre: 'rojo' },
+    {id: 2, nombre: 'azul' },
+    {id: 3, nombre: 'morado' },
 
+]
 export function App(){
     {/*Se crea una función dentro de la función que pasará el evento al botón */}
     const handleClick=()=>{
@@ -36,12 +42,16 @@ export function App(){
             <AlertClock onClickHandler={handleClick}/>
             <Counter/>
             <MouseClicker/>
-            <Clock/>
+            {/*<Clock/>*/}
             <InteractiveWelcome/>
             <Login/>
             <UncontrolledLogin/>
             <FocusabledInput/>
             <StrictMode> <OneMessage/> </StrictMode>
+
+            <h3>Colores: </h3>
+            <Colors colors={colorData}/>
+
             
         </div>
     )
