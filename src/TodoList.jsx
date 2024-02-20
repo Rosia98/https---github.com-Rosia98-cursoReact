@@ -13,13 +13,22 @@ export function TodoList(){
     function handleResetTodos(){
         setTodos([])
         setNewTodo('')
-    }    
+    }
+
+    function handleRemoveTodo(index){
+        const updatedTodos =[...todos]
+        updatedTodos.splice(index, 1)
+        setTodos(updatedTodos)
+    }
         return(
             <div>
                 <h2>Todo List</h2>
                 <ul>
                     {todos.map((todo, index)=>(
-                        <li key={{index}}>{todo}</li>
+                        <li key={{index}}>{todo}
+                        {todo}
+                        <button onClick={() => handleRemoveTodo(index)}>Remove</button>
+                        </li>
                     ))}
                 </ul>
                 <div>
