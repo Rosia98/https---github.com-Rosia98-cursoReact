@@ -70,6 +70,19 @@ export function App(){
              </div>
 
              <Router>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/counter">Counter</Link>
+                        </li>
+                        <li>
+                            <Link to="/users/johndoe">Show Github User</Link>
+                        </li>
+                    </ul>
+                </nav>
                 <Routes>
                  <Route path="/" element={<Welcome name="John" />} />
                  <Route path="/counter" element={<Counter />} />
